@@ -1,9 +1,17 @@
 name: Test PR
-on: [pull_request]
+on:
+  pull_request:
+  workflow_dispatch:
 
 jobs:
   commitlint:
     runs-on: ubuntu-latest
+    env:
+      TEST_USER: hello
+      TESTING_USER: world
+    security:
+      matrix:
+        user: [${env.TEST_USER},${env.TESTING_USER}]
     steps:
       - uses: actions/checkout@v2
         with:
