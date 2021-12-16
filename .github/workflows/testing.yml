@@ -10,8 +10,9 @@ jobs:
       TEST_USER: hello
       TESTING_USER: world
     strategy:
+      fail-fast: false
       matrix:
-        user: [${env.TEST_USER},${env.TESTING_USER}]
+        user: [ipv4, ipv6, dual]
     steps:
       - uses: actions/checkout@v2
         with:
