@@ -16,4 +16,4 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - run: echo "This is a PR"
+      - run: echo "${{ matrix.user }}"
