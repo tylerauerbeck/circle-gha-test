@@ -12,8 +12,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        - user: ${env.TEST_USER}
-        - user: ${env.TESTING_USER}
+        creds:
+          - user: ${env.TEST_USER}
+          - user: ${env.TESTING_USER}
     steps:
       - uses: actions/checkout@v2
         with:
