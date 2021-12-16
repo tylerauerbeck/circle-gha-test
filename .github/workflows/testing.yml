@@ -9,7 +9,7 @@ jobs:
     env:
       TEST_USER: hello
       TESTING_USER: world
-    security:
+    strategy:
       matrix:
         user: [${env.TEST_USER},${env.TESTING_USER}]
     steps:
