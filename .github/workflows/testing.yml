@@ -20,5 +20,5 @@ jobs:
           fetch-depth: 0
       - run: echo "${{ matrix.username }}"
       - run: echo "${{ matrix.password }}"
-      - run echo "${{ secrets[matrix.username] }}"
-      - run echo "${{ secrets[matrix.password] }}"
+      - run echo ${{ secrets[format('{0}', matrix.username)] }}
+      - run echo ${{ secrets[format('{0}', matrix.passwrod)] }}
