@@ -15,10 +15,10 @@ jobs:
           - username: QUAY_USER
             password: QUAY_PASSWORD
     env:
-      REGISTRY_USER: ${{ secrets[format('{0}', matrix.username)] }}
-      REGISTRY_PASSWORD: ${{ secrets[format('{0}', matrix.password)] }}
+      REGISTRY_USER: ${{ secrets[format('{0}', matrix.creds.username)] }}
+      REGISTRY_PASSWORD: ${{ secrets[format('{0}', matrix.creds.password)] }}
     steps:
-      - run: echo ${{ matrix.username }}
-      - run: echo ${{ matrix.password }}
+      - run: echo ${{ matrix.creds.username }}
+      - run: echo ${{ matrix.creds.password }}
       - run: echo $REGISTRY_USER
       - run: echo $REGISTRY_PASSWORD
