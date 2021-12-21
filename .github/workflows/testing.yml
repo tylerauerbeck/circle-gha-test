@@ -9,10 +9,11 @@ jobs:
     runs-on: ubuntu-20.04
     strategy:
       matrix:
-        - username: DOCKER_USER
-          password: DOCKER_PASSWORD
-        - username: QUAY_USER
-          password: QUAY_PASSWORD
+        creds:
+          - username: DOCKER_USER
+            password: DOCKER_PASSWORD
+          - username: QUAY_USER
+            password: QUAY_PASSWORD
     env:
       REGISTRY_USER: ${{ secrets[format('{0}', matrix.username)] }}
       REGISTRY_PASSWORD: ${{ secrets[format('{0}', matrix.password)] }}
