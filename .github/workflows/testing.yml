@@ -6,17 +6,17 @@ on:
 jobs:
   commitlint:
     runs-on: ubuntu-latest
-    env:
-      TEST_USER: hello
-      TESTING_USER: world
     strategy:
       fail-fast: false
       matrix:
         creds:
-          - user: ${{ env.TEST_USER }}
-          - user: ${{ env.TESTING_USER }}
+          - username: DOCKER_USER
+            password: DOCKER_PASSWORD
+          - username: QUAY_USER
+            password: QUAY_PASSWORD 
     steps:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - run: echo "${{ matrix.creds.user }}"
+      - run: echo "${{ matrix.username }}"
+      - run: echo "${{ matrix.password }}"
